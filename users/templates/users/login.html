@@ -1,0 +1,22 @@
+{% extends 'users/layout.html' %}
+{% block title %}
+
+    login
+
+{% endblock %}
+{% block main %}
+
+    <h1>Log in</h1>
+    {% if message %}
+
+        {{ message }}
+
+    {% endif %}
+    <form action="{% url 'users:login' %}" method="post">
+        {% csrf_token %}
+        <input name="username" type="text" autofocus autocomplete="off" placeholder="Username">
+        <input name="password" type="password" autocomplete="off" placeholder="Password">
+        <button>Log in</button>
+    </form>
+
+{% endblock %}
